@@ -17,7 +17,7 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to admin_users_show_url(@user), :notice => "添加用户成功!"
+      redirect_to admin_users_index_url(@user), :notice => "添加用户成功!"
     else
       render action: new
     end
