@@ -1,0 +1,111 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>应用程序一览</div>
+	</div> 
+	
+	<div class="panel-action">
+	    <div class="navbar">
+			<span class="pull-right"><%= link_to_icon "add", admin_apps_new_path, :class => 'navbar-link'%></span>
+		</div>
+	</div> 
+
+	<table class="table table-striped">
+		<thead>
+		    <tr>
+		        <th>名称</th>
+		        <th>应用类型</th>
+		        <th>适用固件版本</th>
+		        <th>适用分辨率</th>
+		        <th>发布</th>
+		        <th>展示</th>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		    </tr>
+		</thead>
+
+		<tbody>
+		    <%@apps.each do |app|%>
+		    <tr>
+			    <td><%= app.name%></td>
+			    <td><%= app.category.name %></td>
+				<td><%= app.firmware_version%></td>
+			    <td><%= app.resolution%></td>
+			    <td><%= app.published ? display_icon("ok") : display_icon("false") %></td>
+			    <td><%= app.top_show ? display_icon("ok") : display_icon("false") %></td>
+				<td><%= link_to_icon "show", admin_apps_show_path(app)%></td>	
+				<td><%= link_to_icon "app", admin_app_upload_app_path(app)%></td>
+				<td><%= link_to_icon "upload", admin_app_upload_image_path(app)%></td>			   		    	
+			    <td><%= link_to_icon "edit", admin_apps_edit_path(app)%></td>
+			    <td><%= link_to_icon "delete", admin_apps_destroy_path(app), method: :delete, data: { confirm: '确定删除吗?' }%></td>
+
+		    </tr>
+		    <%end%>
+		</tbody>
+	</table>
+
+	          
+	<!-- <div class="row app-list">
+	    <div class="col-lg-2">
+	        <span>名称</span>
+	    </div>
+
+	    <div class="col-lg-1">
+	        <span>应用类别</span>
+	    </div>
+
+	    <div class="col-lg-3">
+	        <span>适用固件版本</span>
+	    </div>
+
+	    <div class="col-lg-3">
+	        <span>适用分辨率</span>
+	    </div>
+
+	    <div class="col-lg-1">
+	        <span>查看</span>
+	    </div>
+
+	    <div class="col-lg-1">
+	        <span>编辑</span>
+	    </div>
+
+	    <div class="col-lg-1">
+	        <span>删除</span>
+	    </div>  
+	</div> 
+
+	<div class="row app-list">
+		<%@apps.each do |app|%>
+			<div class="col-lg-2">
+		        <span><%= app.name%></span>
+		    </div>
+
+		    <div class="col-lg-1">
+		        <span><%= app.category.name%></span>
+		    </div>
+
+		    <div class="col-lg-3">
+		         <span><%= app.firmware_version%></span>
+		    </div>
+
+		    <div class="col-lg-3">
+		         <span><%= app.resolution%></span>
+		    </div>
+
+		    <div class="col-lg-1">
+		        <span>查看</span>
+		    </div>
+
+		    <div class="col-lg-1">
+		        <span>编辑</span>
+		    </div>
+
+		    <div class="col-lg-1">
+		        <span>删除</span>
+		    </div>  
+		<%end%>
+	</div> -->
+</div>

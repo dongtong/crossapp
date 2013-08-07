@@ -1,0 +1,32 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>上传应用安装文件</div>
+	</div> 
+	
+	<div class="panel-action">
+	    <div class="navbar">
+			<span><%= link_to_icon "back", admin_apps_index_path, :class => 'navbar-link'%></span>
+		</div>
+	</div> 
+	          
+	<div class="row app-list">
+	    <%= form_for(@app, :url => admin_save_app_path(@app), method: :post,  :html => {:class => "form-horizontal"}) do |f| %>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">Plist文件</label>
+				<div class="col-lg-10">
+				<%= f.file_field :plist_file, :class => "form-control"%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">ipa文件</label>
+				<div class="col-lg-10">
+				<%= f.file_field :installer_file, :class => "form-control"%>
+				<%= f.submit "上传", :class => "btn btn-primary", :id => "add_app"%>
+				</div>
+			</div>
+					  	
+		<% end %>
+	</div> 
+</div>

@@ -1,0 +1,25 @@
+<div class="row app-list">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>关于我们</div>
+			</div> 
+			
+			<div class="panel-action">
+			  
+			</div> 
+			<div class="row">
+				<div class="col-lg-10">
+					<div class="bs-callout bs-callout-description">
+					    <p><%= @about.content%></p>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<%= link_to_icon "edit", admin_about_edit_path(@about)%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

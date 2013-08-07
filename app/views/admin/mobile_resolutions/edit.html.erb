@@ -1,0 +1,30 @@
+<div class="row app-list">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>编辑屏幕分辨率</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span><%= link_to_icon "back", admin_mobile_resolutions_index_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+			          
+			<div class="row app-list">
+			    <%= form_for(@mobile_resolution, :url => admin_mobile_resolutions_update_path, :html => {:class => "form-horizontal"}) do |f| %>
+
+					<div class="form-group">
+						<label for="name" class="col-lg-2 control-label">分辨率</label>
+						<div class="col-lg-10">
+						<%= f.text_field :name, :autofocus => true,  :class => "form-control", :placeholder => "分辨率" %>
+						<%= f.submit "保存", :class => "btn btn-primary", :id => "add_app"%>
+						</div>
+					</div>	
+				<% end %>
+			</div> 
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

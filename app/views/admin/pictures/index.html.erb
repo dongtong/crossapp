@@ -1,0 +1,37 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>截图一览</div>
+	</div> 
+	
+	<div class="panel-action">
+	    
+	</div> 
+
+	<table class="table table-striped">
+		<thead>
+		    <tr>
+		        <th>应用名称</th>
+		        <th>应用类型</th>
+		        <th>缩略图</th>
+		        <th>轮播</th>
+		        <th></th>
+		    </tr>
+		</thead>
+
+		<tbody>
+		    <%@pictures.each do |pic|%>
+		    <% kind = pic.attributes.include?("portrait_pic_file_name") ? "Portrait" : "Landscape"%>
+		    <tr>
+			    <td><%= pic.app.name%></td>
+			    <td><%= pic.app.category.name %></td>
+				<td><%= image_tag( kind=="Portrait" ? pic.portrait_pic.url(:thumb) : pic.landscape_pic.url(:thumb), :width => "322px", :height => "275px")%></td>
+			    <td><%= pic.slided ? display_icon("ok") : display_icon("false") %></td>   	
+			    <td><%= link_to_icon "edit", kind=="Portrait" ? admin_portrait_edit_path(pic) : admin_landscape_edit_path(pic)%></td>
+		    </tr>
+		    <%end%>
+		</tbody>
+	</table>
+
+	          
+	
+</div>

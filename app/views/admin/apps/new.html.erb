@@ -1,0 +1,62 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>添加应用</div>
+	</div> 
+	
+	<div class="panel-action">
+	    <div class="navbar">
+			<span><%= link_to_icon "back", admin_apps_index_path, :class => 'navbar-link'%></span>
+		</div>
+	</div> 
+	          
+	<div class="row app-list">
+	    <%= form_for(@app, :url => admin_apps_create_path, :html => {:class => "form-horizontal"}) do |f| %>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">名称</label>
+				<div class="col-lg-10">
+				<%= f.text_field :name, :autofocus => true,  :class => "form-control", :placeholder => "名称" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">App icon(72x72 Pix)</label>
+				<div class="col-lg-10">
+				<%= f.file_field :app_icon, :class => "form-control"%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="category" class="col-lg-2 control-label">应用类型</label>
+				<div class="col-lg-10">
+				<%= f.select :category_id, Category.all.collect { |c| [c.name, c.id] }, {include_blank: true}, :class => "form-control"%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="firmware_version" class="col-lg-2 control-label">适用固件版本</label>
+				<div class="col-lg-10">
+				<%= select :app, :firmware_version, @firmware_versions, {include_blank: true}, :class => "form-control"%>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="firmware_version" class="col-lg-2 control-label">适用屏幕分辨率</label>
+				<div class="col-lg-10">
+				<%= select :app, :resolution, @resolutions, {include_blank: true}, :class => "form-control"%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="firmware_version" class="col-lg-2 control-label">应用描述</label>
+				<div class="col-lg-10">
+				<%= f.text_area :description, :rows => 8, :class => "form-control"%>
+				<%= f.submit "添加", :class => "btn btn-primary", :id => "add_app"%>
+
+				</div>
+			</div>
+					  	
+		<% end %>
+	</div> 
+</div>

@@ -1,0 +1,39 @@
+<div class="row app-list">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>设备一览</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span class="pull-right"><%= link_to_icon "add", admin_devices_new_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+
+			<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>序号</th>
+		            <th>名称</th>
+		            <th></th>
+		            <th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		         <%@devices.each_with_index do |device, index|%>
+		         	<tr>
+			            <td><%= index + 1%></td>
+			            <td><%= device.name %></th>
+			            <td><%= link_to_icon "edit", admin_devices_edit_path(device)%></th>
+			            <td><%= link_to_icon "delete", admin_devices_destroy_path(device), method: :delete, data: { confirm: '确定删除吗?' }%></th>
+
+		          	</tr>
+		         <%end%>
+		        </tbody>
+		    </table>   
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

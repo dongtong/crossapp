@@ -1,0 +1,35 @@
+<div class="nav-collapse collapse bs-navbar-collapse">
+	<ul class="nav navbar-nav">
+	    <li class=<%= 'active' if  nav == 'apps' %>>
+	        <%= link_to "App管理", admin_apps_index_path %>
+	    </li>
+	    <li class=<%= 'active' if  nav == 'pictures' %>>
+	        <%= link_to "截图管理", admin_pictures_index_path %>
+	    </li>	
+	    <li class=<%= 'active' if  nav == 'categories' %>>
+	        <%= link_to "分类管理", admin_categories_index_path %>
+	    </li>
+	    <li class=<%= 'active' if  nav == 'devices' %>>
+	        <%= link_to "设备管理", admin_devices_index_path %>
+	    </li>	
+	    <li class=<%= 'active' if  nav == 'resolutions' %>>
+	        <%= link_to "分辨率管理", admin_mobile_resolutions_index_path %>
+	    </li>	
+	    <li class=<%= 'active' if  nav == 'users' %>>
+	        <%= link_to "用户管理", admin_users_index_path %>
+	    </li>	
+	    <li class=<%= 'active' if  nav == 'about' %>>
+	        <%= link_to "关于我们", admin_about_index_path %>
+	    </li>	
+	</ul>
+	<ul class="nav navbar-nav pull-right">
+	    <% if user_signed_in? %>
+	     	<li>
+			  <%= link_to('前台', root_path)  %>  
+			</li>
+			<li class="divider-vertical">
+				<%= link_to('退出', destroy_user_session_path, :method => :delete) %>        
+		    </li>
+	    <% end %>
+	</ul>
+</div>

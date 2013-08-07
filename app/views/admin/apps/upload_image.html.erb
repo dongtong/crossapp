@@ -1,0 +1,49 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>上传应用截图</div>
+	</div> 
+	
+	<div class="panel-action">
+	    <div class="navbar">
+			<span><%= link_to_icon "back", admin_apps_index_path, :class => 'navbar-link'%></span>
+			<span class="pull-right">使用设备打开应用程序截取纵向和横向的图片，不需要关心图片的分辨率</span>
+		</div>
+	</div> 
+	          
+	<div class="row app-list">
+	    <%= form_for(@app, :url => admin_app_upload_path(@app), method: :post,  :html => {:class => "form-horizontal"}) do |f| %>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">Portait(纵向图片)</label>
+				<div class="col-lg-10">
+				<%= f.file_field "portraits[portrait_pic_1]", :class => "form-control"%>
+				<%= f.file_field "portraits[portrait_pic_2]", :class => "form-control"%>
+				<%= f.file_field "portraits[portrait_pic_3]", :class => "form-control"%>
+				<%= f.file_field "portraits[portrait_pic_4]", :class => "form-control"%>
+				<%= f.file_field "portraits[portrait_pic_5]", :class => "form-control"%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">Landscape(横向图片)</label>
+				<div class="col-lg-10">
+				<%= f.file_field "landscapes[landscape_pic_1]", :class => "form-control"%>
+				<%= f.file_field "landscapes[landscape_pic_2]", :class => "form-control"%>
+				<%= f.file_field "landscapes[landscape_pic_3]", :class => "form-control"%>
+				<%= f.file_field "landscapes[landscape_pic_4]", :class => "form-control"%>
+				<%= f.file_field "landscapes[landscape_pic_5]", :class => "form-control"%>
+				</div>
+			</div>
+
+			
+
+			<div class="form-group">
+				<label for="firmware_version" class="col-lg-2 control-label"></label>
+				<div class="col-lg-10">
+					<%= f.submit "上传", :class => "btn btn-primary", :id => "add_app"%>
+				</div>
+			</div>
+					  	
+		<% end %>
+	</div> 
+</div>

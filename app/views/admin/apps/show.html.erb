@@ -1,0 +1,66 @@
+<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>预览应用</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span><%= link_to_icon "back", admin_apps_index_path, :class => 'navbar-link'%></span>
+					<span class="pull-right"><%= link_to "添加应用", admin_apps_new_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+
+
+          <div class="row app-list">
+          	<div class="col-lg-1"></div>
+	        <div class="col-lg-2">
+	            <div class="app-icon">
+	                <%= image_tag @app.app_icon.url(:medium)%>  
+	            </div>
+	        </div>
+
+	        <div class="col-lg-3">
+	            <ul class="list-group">
+					<li class="list-group-item">应用类别：<%= @app.category.name%></li>
+					<li class="list-group-item">适用固件版本：<%= @app.firmware_version%></li>
+					<li class="list-group-item">适用屏幕分辨率: <%= @app.resolution%></li>
+				</ul>  
+	        </div>
+
+	        <div class="col-lg-3">
+	            <div class="bs-callout bs-callout-description">
+				    <h4>应用介绍</h4>
+				    <p><%= @app.description%></p>
+				</div>
+	        </div>
+
+	        <div class="col-lg-2">
+	            <a href="#"><%= image_tag 'download_to_desktop.png'%></a>
+	        </div>
+          </div> 
+          <!--image-portrait-->
+          <div class="row image-list">
+          	<div class="col-lg-1"></div>
+          	<% @app.portraits.each do |portrait|%>
+	          	<div class="col-lg-2">
+	          		<div class="thumbnail">
+		          	<%= image_tag portrait.portrait_pic.url(:thumb)%>
+		          	</div>
+				</div>
+			<%end%>
+			<div class="col-lg-1"></div>
+          </div>
+          <!--image-landscape-->
+          <% @app.landscapes.each do |landscape|%>
+          <div class="row image-list landscape">
+          	<div class="col-lg-3"></div>
+	          	<div class="col-lg-6">
+	          		<div class="thumbnail">
+		          	<%= image_tag landscape.landscape_pic.url(:medium)%>
+		          	</div>
+				</div>
+			<div class="col-lg-3"></div>
+          </div>
+          <%end%>
+    
+</div>

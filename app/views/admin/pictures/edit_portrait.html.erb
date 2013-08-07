@@ -1,0 +1,23 @@
+<div class="panel panel-rank">
+	<div class="panel-heading">
+	    <div>编辑截图</div>
+	</div> 
+	
+	<div class="panel-action">
+	    <div class="navbar">
+			<span><%= link_to_icon "back", admin_pictures_index_path, :class => 'navbar-link'%></span>
+		</div>
+	</div> 
+	          
+	<div class="row app-list">
+	    <%= form_for(@portrait, :url => admin_portrait_update_path, method: :put, :html => {:class => "form-horizontal"}) do |f| %>
+			<div class="form-group">
+				<label for="slided" class="col-lg-2 control-label">轮播</label>
+				<div class="col-lg-10">
+				<%= f.check_box :slided, :class => "form-control"%>
+				<%= f.submit "保存", :class => "btn btn-primary", :id => "add_app"%>
+				</div>
+			</div>	  	
+		<% end %>
+	</div> 
+</div>

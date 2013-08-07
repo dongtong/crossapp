@@ -1,0 +1,75 @@
+<%content_for :nav do%>
+  <ul class="nav navbar-nav">
+    <li class="active">
+      <a href="/">首页</a>
+    <li>
+      <a href="/about/index">关于</a>
+    </li>       
+  </ul>
+<%end%>
+
+<div class="bs-example" id="app_detail"> 
+  <div class="row">
+  	<div class="col-lg-12">
+    	<div class="panel panel-rank">
+          	<ul class="breadcrumb">
+			  <li><a href="/">首页</a></li>
+			  <li class="active"><%= @app.name%></li>
+			</ul>
+
+          <div class="row app-list">
+          	<div class="col-lg-1"></div>
+	        <div class="col-lg-2">
+	            <div class="app-icon">
+	                <%= image_tag @app.app_icon.url(:medium)%>  
+	            </div>
+	        </div>
+
+	        <div class="col-lg-3">
+	            <ul class="list-group">
+					<li class="list-group-item">应用类别：<%= @app.category.name%></li>
+					<li class="list-group-item">适用固件版本：<%= @app.firmware_version%></li>
+					<li class="list-group-item">适用屏幕分辨率: <%= @app.resolution%></li>
+				</ul>  
+	        </div>
+
+	        <div class="col-lg-3">
+	            <div class="bs-callout bs-callout-description">
+				    <h4>应用介绍</h4>
+				    <p><%= @app.description%></p>
+				</div>
+	        </div>
+
+	        <div class="col-lg-2">
+	            <a href="#" target="_blank" class="download-app" data-downloadLink='{"url":"itms-services://?action=download-manifest&url=<%= 'http://' + request.host + ':' + request.port.to_s + @app.plist_file.url%>"}'><img alt="Download_to_desktop" src="/assets/download_to_desktop.png"></img></a>
+	        </div>
+          </div> 
+          <!--image-portrait-->
+          <div class="row image-list">
+          	<div class="col-lg-1"></div>
+          	<% @app.portraits.each do |portrait|%>
+	          	<div class="col-lg-2">
+	          		<div class="thumbnail">
+		          	<%= image_tag portrait.portrait_pic.url(:thumb)%>
+		          	</div>
+				</div>
+			<%end%>
+			<div class="col-lg-1"></div>
+          </div>
+          <!--image-landscape-->
+          <% @app.landscapes.each do |landscape|%>
+          <div class="row image-list landscape">
+          	<div class="col-lg-3"></div>
+	          	<div class="col-lg-6">
+	          		<div class="thumbnail">
+		          	<%= image_tag landscape.landscape_pic.url(:medium)%>
+		          	</div>
+				</div>
+			<div class="col-lg-3"></div>
+          </div>
+          <%end%>
+    	</div>
+    </div> 
+    
+  </div>
+</div>
