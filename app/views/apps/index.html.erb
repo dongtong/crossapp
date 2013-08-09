@@ -15,11 +15,6 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-4">
     	      <div id="carousel-example-generic" class="carousel slide bs-docs-carousel-example">
-    	        <ol class="carousel-indicators">
-    	          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    	          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    	          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    	        </ol>
     	        <div class="carousel-inner">
                 <% @portrait_pics.each_with_index do |pic, index|%>
                   <div class="item <%= "active" if index==0%>" style="width: 322px; height: 320px; text-align:center">

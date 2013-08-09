@@ -955,7 +955,7 @@ input.focused {
 }
 
 #carousel-example-generic {
-  width: 370px;
+  /*width: 370px;*/
   height: 320px;
 }
 
