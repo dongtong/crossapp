@@ -3,6 +3,7 @@ class Admin::PicturesController < AdminController
   before_filter :get_nav
   def index
   	@pictures = (Portrait.order("slided asc") + Landscape.order("slided asc"))
+    @pictures.sort!{|a, b| a.app.name <=> b.app.name}
   end
 
   def edit_portrait

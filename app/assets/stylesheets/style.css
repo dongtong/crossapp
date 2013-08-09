@@ -343,7 +343,7 @@ body {
 }
 /* Echo out a label for the example */
 .bs-example:after {
-  content: "应用展示";
+  content: "";
   position: absolute;
   top:  15px;
   left: 15px;
@@ -931,11 +931,16 @@ input.focused {
 .css .nt + .nt { color: #999; }
 
 /* Cross App */
+
+
 .app-block {
   height: 158px;
 }
 
-
+.app-block .thumbnail {
+  width: 120px;
+  height: 140px;
+}
 
 .first-col, .second-col {
   margin-right: 20px;
@@ -949,12 +954,32 @@ input.focused {
   margin-bottom: 20px;
 }
 
+#carousel-example-generic {
+  width: 370px;
+  height: 320px;
+}
+
 #app_carousel .thumbnail {
   background: transparent;
   border: none;
   padding: 0;
   text-align: center;
-  border: 10px solid #EEE;
+}
+
+#app_carousel #first-app {
+  border: 10px solid #DC2050;
+}
+
+#app_carousel #second-app {
+  border: 10px solid #18C4C4;
+}
+
+#app_carousel #third-app {
+  border: 10px solid #3A0809;
+}
+
+#app_carousel #forth-app {
+  border: 10px solid #97D31C;
 }
 
 #app_carousel .caption {
@@ -986,6 +1011,14 @@ input.focused {
   border-bottom: none;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
+}
+
+.bs-header {
+  padding-bottom: 0;
+  padding-top: 10px;
+}
+#app_carousel .carousel .carousel-inner {
+  padding-left: 7%;
 }
 
 #app_carousel div.carousel .carousel-control.right {
