@@ -1014,7 +1014,7 @@ input.focused {
 }
 
 .bs-header {
-  padding: 0 25px 10px 25px;
+  padding: 15px 25px 0 25px;
 }
 .bs-header .container {
   margin: 0;
